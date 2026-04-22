@@ -1,4 +1,4 @@
-# PROJ-MAST
+# PROJ-MAST - optimization tools
 MAST-Managing Sustainability Trade-offs 
 https://itea-mast.org/
 

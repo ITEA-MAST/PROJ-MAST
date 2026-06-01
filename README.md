@@ -7,4 +7,4 @@ https://itea-mast.org/
 
 # Links to existing tools
 - https://www.gecad.isep.ipp.pt/api/mast/clw_forecast_guide
-- https://www.gecad.isep.ipp.pt/api/mast/optimization-documentation
+- https://gecad.isep.ipp.pt/api/mast/clw_optimization_service/optimization-documentation

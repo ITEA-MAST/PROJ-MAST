@@ -13,7 +13,7 @@ https://itea-mast.org/
 # Links to tools under development
 - https://gitlab.almende.org/research-projects/mast/crownstone-inside/documentation
 
-# Generation | Consumption Forecast Service
+## GECAD/CLW Generation | Consumption Forecast Service
 
 This API orchestrates the energy generation/consumption forecast pipeline. It accepts a reference dataset and a forecast timeframe, executes processing scripts, and returns a consumption/generation forecast as a json response.
 
@@ -85,7 +85,7 @@ Returns a JSON object containing the prediction data as a dictionary.
 
 ```
 
-# User Guide: Postman
+## User Guide: Postman
 
 Follow these steps to test the API using Postman.
 
@@ -113,7 +113,7 @@ Follow these steps to test the API using Postman.
 
 ---
 
-# User Guide: cURL
+## User Guide: cURL
 
 You can execute the pipeline directly from the command line.
 

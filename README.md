@@ -130,3 +130,65 @@ curl -X POST "http://gecad.isep.ipp.pt/api/mast/clw_forecast_api/consumptionFore
   -F "start_date=2025-01-01 00:00:00" \
   -F "end_date=2025-01-02 00:00:00"
 ```
+
+## GECAD/CLW Energy Optimization Service
+
+This API provides a Mixed-Integer Linear Programming (MILP) solver interface to optimize energy management strategies for prosumers, including battery storage and grid interaction.
+
+## Optimize Energy Flow
+
+**POST** `/optimize`
+
+Uploads an Excel configuration file, runs the optimization model, and returns a results file containing optimized trajectories for battery and grid usage.
+
+### Request Body
+
+The request must be sent as `multipart/form-data`.
+
+| Key | Type | Description |
+| :--- | :--- | :--- |
+| `file` | File (.xlsx) | The Excel file containing load, PV, and constraint data. |
+
+## Input Excel Requirements
+
+The input file must be a `.xlsx` file with the following sheet names:
+
+| Sheet Name | Description |
+| :--- | :--- |
+| `Load` | Power consumption profile (kW). |
+| `PV` | Photovoltaic generation profile (kW). |
+| `Limits` | Grid import/export constraints and fixed costs. |
+| `Bat` | Battery technical specs (Capacity, Charging rates). |
+| `Buy_price` | Time-of-Use (ToU) grid prices. |
+| `Sell_price` | Feed-in-Tariff (FiT) prices. |
+
+## Output Excel Format
+
+The service returns a multi-sheet Excel file (`optimized_results.xlsx`) containing:
+
+* **Load / PV:** Copies of the input data for reference.
+* **Import / Export:** Optimized grid interaction schedules.
+* **Bat_ch / Bat_dch:** Battery charge and discharge schedules.
+* **Est_bat:** State of Charge (SoC) trajectory.
+* **Energy_bill:** Financial breakdown per period.
+* **Summary:** Objective value (total cost) and execution time.
+
+## Example Request (cURL)
+
+```bash
+curl -X 'POST' \
+  'http://localhost:8000/optimize' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'file=@your_input_file.xlsx'
+```
+
+> **Tip:** If using **Postman**, ensure the Key is set to `file` and the type is set to `File` in the Body > form-data tab.
+
+## Error Codes
+
+| Status | Meaning | Solution |
+| :--- | :--- | :--- |
+| `400` | Bad Request | Incorrect file format (must be .xlsx). |
+| `422` | Unprocessable Entity | Form-data key is missing or not named 'file'. |
+| `500` | Internal Server Error | Check Excel sheet names or solver constraints. |

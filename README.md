@@ -51,13 +51,13 @@ The uploaded `.xlsx` file must respect a specific structure specified bellow. Th
 
 > **Forecasting Note:** While the system accepts various data structures, the forecasting service is currently optimized to provide accurate forecasts only for data representing **Imported Active Energy** or **Total (PV generation)** with 5 minute granularity.
 
-# Endpoints
+## Endpoints
 
-## **POST** `/consumptionForecast`
+### **POST** `/consumptionForecast`
 
 Triggers the full consumption forecast workflow (data processing, train, test, and predict).
 
-## **POST** `/pvGenerationForecast`
+### **POST** `/pvGenerationForecast`
 
 Triggers the full pv generation forecast (data processing, train, test, and predict).
 

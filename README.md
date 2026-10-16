@@ -9,6 +9,9 @@ https://itea-mast.org/
 - https://www.gecad.isep.ipp.pt/api/mast/clw_forecast_guide
 - https://gecad.isep.ipp.pt/api/mast/clw_optimization_service/optimization-documentation
 - https://github.com/PLEnergyDev/green-languages
+- https://greencode-constitution.org/skill.md
+- https://github.com/greencode-constitution 
+
 
 # Links to tools under development
 - https://gitlab.almende.org/research-projects/mast/crownstone-inside/documentation
